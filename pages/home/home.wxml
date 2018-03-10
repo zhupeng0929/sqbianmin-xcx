@@ -1,0 +1,38 @@
+<view class="usercontainer" style=''>
+  <block wx:for="{{listData}}" wx:for-item="item">
+
+    <view class='message'>
+
+      <view>
+        <view class='text1'>
+          <view style="display: flex;">
+            <image src='{{item.HeadImg}}' class='touxiang' mode='aspectFit'></image>
+            <text class='textname'>{{item.NickName}}</text>
+          </view>
+          <text class='time'>{{item.CreateDate}}</text>
+        </view>
+        <view style="padding: 5px 5px;display: flex;flex-direction: column;">
+          <text class='message_content {{item.ishide?"message_content_hidden":""}}'>{{item.Content}}</text>
+          <text catchtap='catchtap' data-index='{{index}}' class='textlook {{item.istoolong?"":"texthide"}}'> {{item.ishide?"展开":"收起"}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class='contact'>
+        <view>
+          <image mode='aspectFit' src='/images/fenlei.png'></image>
+          <text>{{item.CategoryName}}</text>
+        </view>
+        <view>
+          <image src='/images/lianxi2.png'></image>
+          <text>{{item.ContactName}}</text>
+        </view>
+        <view>
+          <image src='/images/phone.png'></image>
+          <text>{{item.ContactNum}}</text>
+        </view>
+      </view>
+
+    </view>
+
+  </block>
+</view>
