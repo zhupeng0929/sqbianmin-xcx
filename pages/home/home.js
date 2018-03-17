@@ -7,9 +7,11 @@ Page({
    */
   data: {
     page: 1,
-    pageSize: 30,
+    pageSize: 5,
     listData: [],
-    BackImgFilePath: "http://xiaoni.com/upload/201801/31/2018131162402007.png"
+    BackImgFilePath: "http://xiaoni.com/upload/201801/31/2018131162402007.png",
+    searchLoading: false, //"上拉加载"的变量，默认false，隐藏  
+    searchLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏  
   },
 
   /**
@@ -46,14 +48,14 @@ Page({
         that.setData({
           listData: that.data.listData.concat(data),
           page: that.data.page + 1,
+          searchLoading: true,
         });
       }
       else {
-        wx.showToast({
-          title: '暂无新信息',
-          icon: 'loading',
-          duration: 1000
-        })
+        that.setData({
+          searchLoading: false ,
+          searchLoadingComplete: true,
+        });
       }
     });
   },
@@ -100,7 +102,9 @@ Page({
   onPullDownRefresh: function () {
     this.setData({
       listData: [],
-      page: 1
+      page: 1,
+      searchLoading: false,
+      searchLoadingComplete: false,
     });
     this.getListData(this.data.page);
     wx.stopPullDownRefresh();

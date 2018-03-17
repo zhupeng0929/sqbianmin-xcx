@@ -1,4 +1,7 @@
-<view class="usercontainer" style=''>
+
+
+
+<view  class="usercontainer" >
   <block wx:for="{{listData}}" wx:for-item="item">
 
     <view class='message'>
@@ -35,4 +38,14 @@
     </view>
 
   </block>
+  
+</view >
+<view class="loading" hidden="{{!searchLoading}}">
+    <image class='iconimg' src='/images/5-121204193935-51.gif'></image>
+    <text>正在载入更多...</text> </view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+<view class='tools'>
+  <navigator url='/pages/index/index'>
+    <image class="addimg" mode="aspectFill" src="/images/add1.png" />
+  </navigator>
 </view>

@@ -1,13 +1,57 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
+
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+
+    <form bindsubmit="formSubmit" bindreset="formReset">
+
+
+      <view class='view_box'>
+        <textarea name="content" maxlength="500" placeholder="请输入要发布的内容" auto-focus="true" focus="true" />
+      </view>
+      <view class='view_box'>
+        <picker name="category" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            <view style="display: flex;">
+              <view style="width: 100px;">
+                <label>分类 </label>
+              </view>
+              <view>
+                <text style="margin-left: 30px;">{{array[index]}}</text>
+              </view>
+            </view>
+            <view>
+              <image style='width:12px;height:12px' src='/images/right.png'></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='view_box contact'>
+        <view style="width: 100px;">
+          <label>联系方式</label>
+        </view>
+        <input name="ContactNum" placeholder="请输入联系方式" style="margin-left: 30px;" />
+      </view>
+      <view class='view_box contact'>
+        <view style="width: 100px;">
+          <label>联系人</label>
+        </view>
+        <view>
+          <input name="ContactName" placeholder="请输入联系人" style="margin-left: 30px;" />
+        </view>
+      </view>
+      <view class="btn-area">
+        <button style="width: 90%;" type="primary" formType="submit">发布</button>
+
+      </view>
+    </form>
+
+
+
+
+    <!-- 
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+  </block>
 </view>

@@ -2,7 +2,8 @@
 .userinfo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+
 }
 
 .userinfo-avatar {
@@ -18,4 +19,26 @@
 
 .usermotto {
   margin-top: 200px;
+}
+.view_box{
+    border-bottom: 1px solid rgb(209, 209, 209);
+    padding:10px 15px;
+
+
+}
+.picker{
+display:flex;
+justify-content:space-between;
+
+}
+.contact{
+  display:flex;
+flex-direction:row;
+}
+.btn-area{
+  bottom: 10px;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+
 }
