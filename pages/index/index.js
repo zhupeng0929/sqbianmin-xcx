@@ -105,7 +105,8 @@ Page({
 
 
     wx.request({
-      url: 'http://192.168.1.207:9002/api/GetData/AddMessage', //仅为示例，并非真实的接口地址
+      // url: 'http://192.168.1.207:9002/api/GetData/AddMessage', //仅为示例，并非真实的接口地址
+      url: 'https://api.xiaoni.com/common/advert/addmessage.html?appid=99999999',
       data: {
         NickName: this.data.userInfo.nickName,
         HeadImg: this.data.userInfo.avatarUrl,
@@ -115,7 +116,7 @@ Page({
         ContactName: e.detail.value.ContactName,
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       method: "POST",
       success: function (res) {

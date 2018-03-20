@@ -21,11 +21,13 @@ Page({
     this.getListData(this.data.page);
   },
   getListData: function (page) {
-    var url = "/api/GetData/GetList" + page + "&userid=" + this.data.userid;
+    // var url = "api/GetData/GetList" + page + "&userid=" + this.data.userid;
+
 
     var that = this;
-    var action = "/api/GetData/GetList";
-    var parameters = 'pageindex=' + page + '&pagesize=' + this.data.pageSize;
+    // var action = "api/GetData/GetList";
+    var action = "common/advert/GetList.html";
+    var parameters = 'pageindex=' + page + '&pagesize=' + this.data.pageSize +'&appid=99999999';
 
     util.request(action, parameters, function (res) {
       var data = res.data

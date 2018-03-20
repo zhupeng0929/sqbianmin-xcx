@@ -15,7 +15,7 @@ const formatNumber = n => {
 }
 //网络请求
 function request(action = "", parameters = "", success, method = "GET", header = {}) {
-  var url = "http://192.168.1.207:9002/" + action + (method == "GET" ? "?" : "") + parameters;
+  var url = "https://api.xiaoni.com/" + action + (method == "GET" ? "?" : "") + parameters;
   console.log(url);
   wx.request({
     url: url,
